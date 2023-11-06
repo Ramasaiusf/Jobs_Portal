@@ -1,0 +1,190 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/jobpostings.css"> 
+    <title>Job Postings</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Job Postings</h1>        
+        <div class="search-container">
+            <input type="text" id="table-search" placeholder="Search for anything in the table">
+        </div>
+        <table id="jobPostingsTable" class="table">
+            <thead>
+                <tr>
+                    <th>Job Id</th>
+                    <th>Department</th>
+                    <th>career level</th>
+                    <th>work location</th>
+                    <th>posting date</th>
+                    <th>Salary Range ($)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be displayed here -->
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="previousButton">Previous</button>
+            <button id="nextButton">Next</button>
+        </div>
+    </div>
+    <script defer>
+        // Function to format the date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const year = date.getFullYear();
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const day = date.getDate().toString().padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const apiKey = 'RhEpGjjxXIgbBJK1OqavYjI0eH8stPCZ9Ad3I4LT';
+            const apiUrl = 'https://data.cityofnewyork.us/resource/kpav-sd4t.json';
+
+            const jobPostingsTable = document.getElementById('jobPostingsTable');
+            const tableBody = jobPostingsTable.querySelector('tbody');
+
+            const recordsPerPage = 20;
+            let currentPage = 1;
+
+            function fetchJobPostings(page) {
+                const offset = (page - 1) * recordsPerPage;
+                const urlWithParams = `${apiUrl}?$offset=${offset}&$limit=${recordsPerPage}`;
+
+                fetch(urlWithParams)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Clear the existing table rows
+                        tableBody.innerHTML = '';
+
+                        data.forEach(job => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${job.job_id}</td>
+                                <td>${job.agency}</td>
+                                <td>${job.career_level}</td>
+                                <td>${job.work_location}</td>
+                                <td>${formatDate(job.posting_date)}</td>
+                                <td>${job.salary_range_from} - ${job.salary_range_to}</td>
+
+                            `;
+                            const actionsCell = row.insertCell(6);
+
+                            // Create "View" button
+                            const DetailsButton = document.createElement("button");
+                            DetailsButton.textContent = "Details";
+                            DetailsButton.className = "Details-button";
+                            // detailsButton.addEventListener("click", function () {
+                            //     event.preventDefault();
+                            //     // Redirect to the Details action in JobsController
+                            //     window.location.href = "/Jobs/Details?id=" + jobID; // Replace jobID with the actual ID
+                            // });
+                            actionsCell.appendChild(DetailsButton);
+                            tableBody.appendChild(row);
+
+                            // Create "Edit" button
+                            const editButton = document.createElement("button");
+                            editButton.textContent = "Edit";
+                            editButton.className = "edit-button";
+                            // editButton.addEventListener("click", function () {
+                            //     event.preventDefault();
+                            //     // Redirect to the Edit action in JobsController
+                            //     window.location.href = "/Jobs/Edit?id=" + jobID; // Replace jobID with the actual ID
+                            // });
+                            actionsCell.appendChild(editButton);
+
+                            // Create "Delete" button
+                            const deleteButton = document.createElement("button");
+                            deleteButton.textContent = "Delete";
+                            deleteButton.className = "delete-button";
+                            // deleteButton.addEventListener("click", function () {
+                            //     event.preventDefault();
+                            //     // Redirect to the Delete action in JobsController
+                            //     window.location.href = "/Jobs/Delete?id=" + jobID; // Replace jobID with the actual ID
+                            // });
+                            actionsCell.appendChild(deleteButton);
+                            tableBody.appendChild(row);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error fetching data:', error);
+                    });
+            }
+
+            // Initial fetch on page load
+            fetchJobPostings(currentPage);
+
+            // Pagination controls
+            function updatePagination() {
+                // Implement previous and next buttons, update currentPage accordingly
+            }
+
+            // Example: Previous button
+            window.onload = function () {
+                const previousButton = document.getElementById('previousButton');
+                previousButton.addEventListener('click', () => {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        fetchJobPostings(currentPage);
+                        updatePagination();
+                    }
+                });
+
+                const nextButton = document.getElementById('nextButton');
+                nextButton.addEventListener('click', () => {
+                    currentPage++;
+                    fetchJobPostings(currentPage);
+                    updatePagination();
+                });
+            }
+
+            // Initial pagination setup
+            updatePagination();
+        });
+
+        function searchTable() {
+            const searchInput = document.getElementById("table-search").value.toLowerCase();
+            const tableRows = document.querySelectorAll("#jobPostingsTable tbody tr");
+
+            tableRows.forEach((row) => {
+                let found = false;
+
+                // Loop through each cell in the row and check if it contains the search input
+                for (let cell of row.cells) {
+                    if (cell.textContent.toLowerCase().includes(searchInput)) {
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (found) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+
+        // Event listener for the search input field
+        document.getElementById("table-search").addEventListener("input", searchTable);
+
+        // Initialize the table with data
+        fetchAndPopulateTable();
+
+    </script>
+</body>
+</html>

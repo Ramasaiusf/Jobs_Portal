@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job List</title>
+</head>
+<body>
+    <h1>Job List</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Title Code No</th>
+                <th>Business Title</th>
+                <th>Title Classification</th>
+                <th>Civil Service Title</th>
+                <th>Level ID</th>
+                <!-- Add headers for other columns -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var job in Model.Jobs)
+            {
+                <tr>
+                    <td>@job.TitleCodeNo</td>
+                    <td>@job.BusinessTitle</td>
+                    <td>@job.TitleClassification</td>
+                    <td>@job.CivilServiceTitle</td>
+                    <td>@job.LevelID</td>
+                    <!-- Add cells for other columns -->
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

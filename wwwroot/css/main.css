@@ -1,0 +1,214 @@
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+ 
+}
+
+header {
+    background-color: #573b8a;
+    color: #fff;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+nav li {
+    display: inline;
+    margin-left: 20px;
+    text-decoration-color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+    nav a:hover {
+        color: #ff9900;
+    }
+
+.container {
+    width:fit-content;
+    max-width: 1500px !important;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container-fluid{
+    text-justify:auto;
+
+}
+/*h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}*/
+p {
+    font-size: 16px;
+}
+
+/* Styles for the table */
+.table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 20px;
+}
+
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .table th {
+        background-color: #573b8a;
+        color: #fff;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table tr:hover {
+        background-color: #ddd;
+    }
+table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+td {
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hide overflowing content */
+    text-overflow: ellipsis; /* Add ellipsis for overflowed content */
+    border: 1px solid #ccc; /* Optional: Add borders for better visualization */
+    padding: 5px;
+}
+
+#usage p {
+    text-align: justify;
+    margin: 80px;
+}
+
+.container1 {
+    flex-direction: column;
+    align-items: center;
+    background-image: url("img/group.jpg");
+    background-size: cover;
+    background-position: center;
+}
+h2 {
+    text-align: center;
+    margin: 1rem auto 4rem;
+    position: relative;
+}
+#welcome h2::after {
+    content: '';
+    height: 4px;
+    margin: 0 auto;
+    text-align: center;
+    width: 15%;
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    border-radius: 5px;
+    transform: translate(-50%);
+}
+/* CSS */
+.welcome-message {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+
+.welcome-message h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.welcome-message p {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+#usage h2::after {
+    content: '';
+    height: 4px;
+    margin: 0 auto;
+    text-align: center;
+    width: 15%;
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    border-radius: 5px;
+    transform: translate(-50%);
+}
+div img {
+    max-width: 100%;
+    height: auto;
+    position:relative;
+}
+
+/* CSS */
+.job-stats {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    left:0
+}
+
+.job-stats h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.job-stats ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-stats li {
+    margin-bottom: 5px;
+}
+/* CSS */
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #573b8a;
+    text-align: center;
+    padding: 10px;
+}
+
+footer p {
+    font-size: 12px;
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff9900;
+}
+
+

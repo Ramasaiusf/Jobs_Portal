@@ -1,0 +1,133 @@
+﻿#our-Team {
+    width: 80%;
+    margin: 4rem auto 1rem;
+}
+
+ h2 {
+    text-align: center;
+    margin: 1rem auto 4rem;
+    position: relative;
+}
+
+#our-Team h2::after {
+content: '';
+height: 4px;
+margin: 0 auto;
+text-align: center;
+width: 15%;
+background-color: aqua;
+position: absolute;
+left: 50%;
+bottom: -10px;
+border-radius: 5px;
+transform: translate(-50%);
+}
+
+.teamContainer {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.team-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.team-item h5 {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+.team-item span {
+    margin-top: .4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(7, 176, 176);
+}
+.team-item a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077B5; 
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+.team-item a:hover {
+    background-color: #005183; /* Darker blue on hover */
+}
+
+.team-item p{
+    text-align: justify;
+}
+
+.team-item img {
+    width: 175px;
+}
+.circular-image {
+    width: 200px; /* Set the desired width and height for your circular image */
+    height: 200px;
+    border-radius: 50%; /* Set the border-radius to 50% to create a circular shape */
+}
+
+#Our-Data-Model h2::after {
+    content: '';
+    height: 4px;
+    margin: 0 auto;
+    text-align: center;
+    width: 15%;
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    border-radius: 5px;
+    transform: translate(-50%);
+}
+
+#Our-Data-Model img {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#github h2::after {
+    content: '';
+    height: 4px;
+    margin: 0 auto;
+    text-align: center;
+    width: 15%;
+    background-color: aqua;
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    border-radius: 5px;
+    transform: translate(-50%);
+
+}
+
+#github {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+#github a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077B5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
