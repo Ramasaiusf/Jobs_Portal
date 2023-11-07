@@ -74,10 +74,10 @@ namespace Jobs_Portal.Models
         public string AdditionalInformation { get; set; }
 
         // Navigation properties
-        [ForeignKey("TitleCodeNo")]
-        public Title Title { get; set; }
+       
+        public string Title { get; set; }
 
-        [ForeignKey("LevelID")]
-        public Level Level { get; set; }
+       
+        public string Level { get; set; }
     }
 }

@@ -3,16 +3,21 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-    <h1>Index</h1>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/jobs/index.css">
+    <title>Home</title>
+</head>
+<body>
     <p>
-        <a asp-action="Create">Create New</a>
+        <a asp-action="Create" class="btn">Create New</a>
     </p>
+    <div class=" table-container">
 
-<div class="container">
-    <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover">
+        <table class="table">
             <thead>
                 <tr>
                     <th>
@@ -23,6 +28,9 @@
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.NumberOfPositions)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.LevelID)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.ResidencyRequirement)
@@ -41,6 +49,9 @@
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.FullTimePartTimeIndicator)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TitleCodeNo)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.TitleCodeNo1)
@@ -85,10 +96,10 @@
                         @Html.DisplayNameFor(model => model.AdditionalInformation)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Title.BusinessTitle)
+                        @Html.DisplayNameFor(model => model.Title)
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Level.CareerLevel)
+                        @Html.DisplayNameFor(model => model.Level)
                     </th>
                     <th>Actions</th>
                 </tr>
@@ -107,6 +118,9 @@
                             @Html.DisplayFor(modelItem => item.NumberOfPositions)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.LevelID)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.ResidencyRequirement)
                         </td>
                         <td>
@@ -123,6 +137,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.FullTimePartTimeIndicator)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TitleCodeNo)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.TitleCodeNo1)
@@ -167,20 +184,23 @@
                             @Html.DisplayFor(modelItem => item.AdditionalInformation)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Title.BusinessTitle)
+                            @Html.DisplayFor(modelItem => item.Title)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Level.CareerLevel)
+                            @Html.DisplayFor(modelItem => item.Level)
                         </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.JobID" class="btn btn-warning">Edit</a> 
-                            <a asp-action="Details" asp-route-id="@item.JobID" class="btn btn-info">Details</a> 
-                            <a asp-action="Delete" asp-route-id="@item.JobID" class="btn btn-danger">Delete</a>
+                        <td class="actions">
+                            <a asp-action="Edit" class="btn btn-primary" id="action-button" asp-route-id="@item.JobID">Edit</a>
+                            <a asp-action="Details" class="btn btn-info" id="action-button" asp-route-id="@item.JobID">Details</a>
+                            <a asp-action="Delete" class="btn btn-danger" id="action-button" asp-route-id="@item.JobID">Delete</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
+
     </div>
-</div>
+
+
+</body>
 

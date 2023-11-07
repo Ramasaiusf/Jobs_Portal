@@ -1,12 +1,10 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
 }
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Add your meta tags, title, and CSS links here -->
+   
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/jobpostings.css"> <!-- Include specific CSS for this page -->
     <script src="~/js/jobstats.js"></script>
@@ -17,8 +15,8 @@
     <div class="container">
         <!-- Career Levels Table -->
         <div class="career-level">
-            <h2>Career Levels</h2>
-            <table id="careerLevelTable" class="table">
+            <h2><b>Career Levels</b></h2>
+            <table id="careerLevelTable" class="custom-table">
                 <thead>
                     <tr>
                         <th>Level</th>
@@ -29,8 +27,8 @@
                     <!-- Data will be displayed here -->
                 </tbody>
             </table>
-            <h1></h1>
-            <h1> Career Level VS No of Jobs</h1>
+            <br>
+            <h2><b>Career Level VS No of Jobs</b></h2>
             <div class="bar-chart">
                 <canvas id="careerLevelChart"></canvas>
             </div>

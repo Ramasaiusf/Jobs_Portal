@@ -2,11 +2,11 @@
 body {
     background-color: #f5f5f5; /* Set background color for the page */
 }
-header {
+/*header {
     background-color: #573b8a;
     color: #fff;
     padding: 20px 0;
-}
+}*/
 
 img {
     position: relative;
@@ -77,7 +77,41 @@ nav a {
     }
 
 /* Add this CSS to your stylesheet */
-.table {
+
+/* Add this CSS to your stylesheet */
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+    .custom-table th, .custom-table td {
+        padding: 4px;
+        border: 1px solid #333;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .custom-table th {
+        background-color: #573b8a;
+        color: #fff;
+    }
+
+    .custom-table tr:nth-child(even) {
+        background-color: #f7f7f7;
+    }
+
+    .custom-table tr:nth-child(odd) {
+        background-color: #e5e5e5;
+    }
+
+    .custom-table tr:hover {
+        background-color: #999;
+    }
+
+
+
+/*.table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -100,7 +134,7 @@ nav a {
 
     .table tr:hover {
         background-color: #ddd;
-    }
+    }*/
 
 /* Style for the search container */
 .search-container {
@@ -165,6 +199,24 @@ nav a {
     cursor: pointer;
     margin-right: 5px;
 }
+
+.Details-button {
+    display: inline-block;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0056b3; /* Change this to your desired button color */
+    color: #f5f5f5; /* Text color */
+    border-radius: 0%; /* Makes the button round */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+    /* Add a hover effect to change the button color on hover */
+    .Details-button:hover {
+        background-color: #3498db; /* Change this to your desired hover color */
+    }
 
 
 /* Additional styles for the table, if needed */

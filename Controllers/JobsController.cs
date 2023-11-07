@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Jobs_Portal.Data;
 using Jobs_Portal.Models;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Jobs_Portal.Controllers
 {
-    [Authorize]
     public class JobsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,8 +22,9 @@ namespace Jobs_Portal.Controllers
         // GET: Jobs
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Job.Include(j => j.Level).Include(j => j.Title);
-            return View(await applicationDbContext.ToListAsync());
+              return _context.Job != null ? 
+                          View(await _context.Job.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Job'  is null.");
         }
 
         // GET: Jobs/Details/5
@@ -37,8 +36,6 @@ namespace Jobs_Portal.Controllers
             }
 
             var job = await _context.Job
-                .Include(j => j.Level)
-                .Include(j => j.Title)
                 .FirstOrDefaultAsync(m => m.JobID == id);
             if (job == null)
             {
@@ -51,17 +48,15 @@ namespace Jobs_Portal.Controllers
         // GET: Jobs/Create
         public IActionResult Create()
         {
-            ViewData["LevelID"] = new SelectList(_context.Set<Level>(), "LevelID", "CareerLevel");
-            ViewData["TitleCodeNo"] = new SelectList(_context.Set<Title>(), "TitleCodeNo", "BusinessTitle");
             return View();
         }
 
         // POST: Jobs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost,ActionName("Create")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("JobID,PostingType,Agency,NumberOfPositions,LevelID,ResidencyRequirement,RecruitmentContact,SalaryFrequency,SalaryRangeFrom,SalaryRangeTo,FullTimePartTimeIndicator,TitleCodeNo,TitleCodeNo1,WorkLocationAgency,DivisionWorkUnit,MinimumQualRequirements,JobDescription,PreferredSkills,ToApply,HoursShift,PostingDate,PostUntil,PostingUpdated,ProcessDate,WorkLocation1,AdditionalInformation")] Job job)
+        public async Task<IActionResult> Create([Bind("JobID,PostingType,Agency,NumberOfPositions,LevelID,ResidencyRequirement,RecruitmentContact,SalaryFrequency,SalaryRangeFrom,SalaryRangeTo,FullTimePartTimeIndicator,TitleCodeNo,TitleCodeNo1,WorkLocationAgency,DivisionWorkUnit,MinimumQualRequirements,JobDescription,PreferredSkills,ToApply,HoursShift,PostingDate,PostUntil,PostingUpdated,ProcessDate,WorkLocation1,AdditionalInformation,Title,Level")] Job job)
         {
             if (ModelState.IsValid)
             {
@@ -69,8 +64,6 @@ namespace Jobs_Portal.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LevelID"] = new SelectList(_context.Set<Level>(), "LevelID", "CareerLevel", job.LevelID);
-            ViewData["TitleCodeNo"] = new SelectList(_context.Set<Title>(), "TitleCodeNo", "BusinessTitle", job.TitleCodeNo);
             return View(job);
         }
 
@@ -87,17 +80,15 @@ namespace Jobs_Portal.Controllers
             {
                 return NotFound();
             }
-            ViewData["LevelID"] = new SelectList(_context.Set<Level>(), "LevelID", "CareerLevel", job.LevelID);
-            ViewData["TitleCodeNo"] = new SelectList(_context.Set<Title>(), "TitleCodeNo", "BusinessTitle", job.TitleCodeNo);
             return View(job);
         }
 
         // POST: Jobs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost,ActionName("Edit")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("JobID,PostingType,Agency,NumberOfPositions,LevelID,ResidencyRequirement,RecruitmentContact,SalaryFrequency,SalaryRangeFrom,SalaryRangeTo,FullTimePartTimeIndicator,TitleCodeNo,TitleCodeNo1,WorkLocationAgency,DivisionWorkUnit,MinimumQualRequirements,JobDescription,PreferredSkills,ToApply,HoursShift,PostingDate,PostUntil,PostingUpdated,ProcessDate,WorkLocation1,AdditionalInformation")] Job job)
+        public async Task<IActionResult> Edit(int id, [Bind("JobID,PostingType,Agency,NumberOfPositions,LevelID,ResidencyRequirement,RecruitmentContact,SalaryFrequency,SalaryRangeFrom,SalaryRangeTo,FullTimePartTimeIndicator,TitleCodeNo,TitleCodeNo1,WorkLocationAgency,DivisionWorkUnit,MinimumQualRequirements,JobDescription,PreferredSkills,ToApply,HoursShift,PostingDate,PostUntil,PostingUpdated,ProcessDate,WorkLocation1,AdditionalInformation,Title,Level")] Job job)
         {
             if (id != job.JobID)
             {
@@ -124,8 +115,6 @@ namespace Jobs_Portal.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["LevelID"] = new SelectList(_context.Set<Level>(), "LevelID", "CareerLevel", job.LevelID);
-            ViewData["TitleCodeNo"] = new SelectList(_context.Set<Title>(), "TitleCodeNo", "BusinessTitle", job.TitleCodeNo);
             return View(job);
         }
 
@@ -138,8 +127,6 @@ namespace Jobs_Portal.Controllers
             }
 
             var job = await _context.Job
-                .Include(j => j.Level)
-                .Include(j => j.Title)
                 .FirstOrDefaultAsync(m => m.JobID == id);
             if (job == null)
             {

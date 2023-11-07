@@ -3,175 +3,189 @@
 @{
     ViewData["Title"] = "Delete";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/jobs/edit.css">
+    <title>Home</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this Posting?</h3>
+    <div>
 
-<h1>Delete</h1>
+        <br />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PostingType)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PostingType)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Agency)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Agency)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NumberOfPositions)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NumberOfPositions)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.LevelID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.LevelID)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ResidencyRequirement)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ResidencyRequirement)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.RecruitmentContact)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.RecruitmentContact)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SalaryFrequency)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SalaryFrequency)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SalaryRangeFrom)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SalaryRangeFrom)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SalaryRangeTo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SalaryRangeTo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FullTimePartTimeIndicator)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FullTimePartTimeIndicator)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TitleCodeNo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TitleCodeNo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.TitleCodeNo1)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.TitleCodeNo1)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WorkLocationAgency)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WorkLocationAgency)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.DivisionWorkUnit)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.DivisionWorkUnit)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MinimumQualRequirements)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MinimumQualRequirements)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.JobDescription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.JobDescription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PreferredSkills)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PreferredSkills)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ToApply)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ToApply)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.HoursShift)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.HoursShift)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PostingDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PostingDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PostUntil)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PostUntil)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PostingUpdated)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PostingUpdated)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ProcessDate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ProcessDate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WorkLocation1)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WorkLocation1)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.AdditionalInformation)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.AdditionalInformation)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Level)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Level)
+            </dd>
+        </dl>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Job</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.JobID)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.JobID)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PostingType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PostingType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Agency)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Agency)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NumberOfPositions)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NumberOfPositions)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ResidencyRequirement)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ResidencyRequirement)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecruitmentContact)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecruitmentContact)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SalaryFrequency)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SalaryFrequency)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SalaryRangeFrom)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SalaryRangeFrom)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SalaryRangeTo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SalaryRangeTo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FullTimePartTimeIndicator)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FullTimePartTimeIndicator)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TitleCodeNo1)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TitleCodeNo1)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkLocationAgency)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WorkLocationAgency)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DivisionWorkUnit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DivisionWorkUnit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MinimumQualRequirements)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MinimumQualRequirements)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.JobDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.JobDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PreferredSkills)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PreferredSkills)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ToApply)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ToApply)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HoursShift)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HoursShift)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PostingDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PostingDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PostUntil)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PostUntil)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PostingUpdated)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PostingUpdated)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProcessDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProcessDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WorkLocation1)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WorkLocation1)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AdditionalInformation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AdditionalInformation)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title.BusinessTitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Level)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Level.CareerLevel)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="JobID" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="JobID" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-action="Index" class="btn">Back to List</a>
+        </form>
+    </div>
+</body>
+
