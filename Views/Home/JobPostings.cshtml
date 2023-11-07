@@ -87,37 +87,12 @@
                             // Create "View" button
                             const DetailsButton = document.createElement("button");
                             DetailsButton.textContent = "Details";
-                            DetailsButton.className = "Details-button";
-                            // detailsButton.addEventListener("click", function () {
-                            //     event.preventDefault();
-                            //     // Redirect to the Details action in JobsController
-                            //     window.location.href = "/Jobs/Details?id=" + jobID; // Replace jobID with the actual ID
-                            // });
+                            DetailsButton.className = "Details-button";                           
                             actionsCell.appendChild(DetailsButton);
+
                             tableBody.appendChild(row);
 
-                            // Create "Edit" button
-                            const editButton = document.createElement("button");
-                            editButton.textContent = "Edit";
-                            editButton.className = "edit-button";
-                            // editButton.addEventListener("click", function () {
-                            //     event.preventDefault();
-                            //     // Redirect to the Edit action in JobsController
-                            //     window.location.href = "/Jobs/Edit?id=" + jobID; // Replace jobID with the actual ID
-                            // });
-                            actionsCell.appendChild(editButton);
-
-                            // Create "Delete" button
-                            const deleteButton = document.createElement("button");
-                            deleteButton.textContent = "Delete";
-                            deleteButton.className = "delete-button";
-                            // deleteButton.addEventListener("click", function () {
-                            //     event.preventDefault();
-                            //     // Redirect to the Delete action in JobsController
-                            //     window.location.href = "/Jobs/Delete?id=" + jobID; // Replace jobID with the actual ID
-                            // });
-                            actionsCell.appendChild(deleteButton);
-                            tableBody.appendChild(row);
+                            
                         });
                     })
                     .catch(error => {
@@ -181,6 +156,13 @@
 
         // Event listener for the search input field
         document.getElementById("table-search").addEventListener("input", searchTable);
+
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('Details-button')) {
+                const jobID = e.target.parentElement.parentElement.querySelector('td:first-child').textContent; // Get the job ID
+                window.location.href = `/JobDetails/Index?jobID=${jobID}`;
+            }
+        });
 
         // Initialize the table with data
         fetchAndPopulateTable();

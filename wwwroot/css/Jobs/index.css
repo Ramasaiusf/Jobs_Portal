@@ -1,0 +1,63 @@
+﻿/* Custom CSS for table styling */
+.table-container {
+    margin-top: 20px;
+}
+
+    .table-container table {
+        width: 100%;
+    }
+
+    .table-container th, .table-container td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table-container .btn {
+        padding: 5px 10px;
+    }
+
+    .table-container .btn-edit {
+        background-color: #337ab7;
+        color: #fff;
+    }
+
+    .table-container .btn-details {
+        background-color: #5bc0de;
+        color: #fff;
+    }
+
+    .table-container .btn-delete {
+        background-color: #d9534f;
+        color: #fff;
+    }
+
+    /* Custom CSS for table row (tr) to auto-adjust row height */
+    .table-container tr {
+        height: auto;
+    }
+
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: #573b8a;
+    text-align: center;
+    padding: 10px;
+}
+
+    footer p {
+        font-size: 12px;
+        color: #fff;
+    }
+
+    footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+        footer a:hover {
+            color: #ff9900;
+        }
+

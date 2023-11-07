@@ -1,4 +1,4 @@
-﻿INSERT INTO Title (BusinessTitle, TitleClassification, CivilServiceTitle)
+﻿    INSERT INTO Title (BusinessTitle, TitleClassification, CivilServiceTitle)
 VALUES
     ('Manager', 'Management', 'Executive Manager'),
     ('Developer', 'Information Technology', 'Software Developer'),

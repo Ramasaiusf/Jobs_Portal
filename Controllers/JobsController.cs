@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Jobs_Portal.Data;
 using Jobs_Portal.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Jobs_Portal.Controllers
 {
+    [Authorize]
     public class JobsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -57,7 +59,7 @@ namespace Jobs_Portal.Controllers
         // POST: Jobs/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost,ActionName("Create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("JobID,PostingType,Agency,NumberOfPositions,LevelID,ResidencyRequirement,RecruitmentContact,SalaryFrequency,SalaryRangeFrom,SalaryRangeTo,FullTimePartTimeIndicator,TitleCodeNo,TitleCodeNo1,WorkLocationAgency,DivisionWorkUnit,MinimumQualRequirements,JobDescription,PreferredSkills,ToApply,HoursShift,PostingDate,PostUntil,PostingUpdated,ProcessDate,WorkLocation1,AdditionalInformation")] Job job)
         {
@@ -93,7 +95,7 @@ namespace Jobs_Portal.Controllers
         // POST: Jobs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+        [HttpPost,ActionName("Edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("JobID,PostingType,Agency,NumberOfPositions,LevelID,ResidencyRequirement,RecruitmentContact,SalaryFrequency,SalaryRangeFrom,SalaryRangeTo,FullTimePartTimeIndicator,TitleCodeNo,TitleCodeNo1,WorkLocationAgency,DivisionWorkUnit,MinimumQualRequirements,JobDescription,PreferredSkills,ToApply,HoursShift,PostingDate,PostUntil,PostingUpdated,ProcessDate,WorkLocation1,AdditionalInformation")] Job job)
         {
